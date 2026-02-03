@@ -23,10 +23,14 @@ export default function Page() {
             />
 
             <button onClick={addItem}>Add</button>
+            <button onClick={() => setItems([])}>Clear List</button>
 
             <ul>
                 {items.map((item, i) => (
-                    <li key={i}>{item}</li>
+                    <><li key={i}>{item}</li>
+                        {/* whenever you want to delete, you use filter method */}
+                        <button onClick={() => setItems(items.filter((_, j) => j !== i))}>Delete</button></>
+
                 ))}
             </ul>
         </div>
